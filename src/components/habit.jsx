@@ -1,6 +1,14 @@
 import React, { PureComponent } from "react";
 
 class Habit extends PureComponent {
+  componentDidMount() {
+    //생성될때 작동
+  }
+
+  componentWillUnmount() {
+    //제거될때 작동
+  }
+
   handleIncrement = () => {
     this.props.onIncrement(this.props.habit);
   };
