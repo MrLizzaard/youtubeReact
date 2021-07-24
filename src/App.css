@@ -109,3 +109,47 @@ li {
 .fa-search {
   font-size: var(--font-size-large);
 }
+
+.video__card {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video__card-list {
+  width: 100%;
+  height: 138px;
+  margin: var(--basic-margin);
+  display: flex;
+}
+
+.video__card-thumbnail {
+  width: 246px;
+  height: 137.637px;
+  margin-right: 16px;
+}
+
+.video__card-title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 3px;
+  width: 85%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.video__card-channel {
+  color: grey;
+  padding-bottom: 12px;
+  margin-right: 5px;
+}
+
+.video__card-description {
+  width: 100%;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}

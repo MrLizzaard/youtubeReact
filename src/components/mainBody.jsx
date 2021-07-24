@@ -3,7 +3,7 @@ import PopularVid from "./popularVid";
 
 function MainBody() {
   return (
-    <div>
+    <div className="mainBody">
       <PopularVid></PopularVid>
     </div>
   );
