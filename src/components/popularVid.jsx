@@ -30,12 +30,16 @@ class PopularVid extends Component {
         {this.state.data
           ? this.state.data.items.map((item) => (
               <li className="video__card-list">
-                <img src={item.snippet.thumbnails.medium.url} alt="thumbnail" className="video__card-thumbnail"></img>
-                <div className="video__card_info">
-                  <div className="video__card-title">{item.snippet.title}</div>
-                  <div className="video__card-channel">{item.snippet.channelTitle}</div>
-                  <div className="video__card-description">{item.snippet.description}</div>
-                </div>
+                <a href="http://localhost:3000/">
+                  <img src={item.snippet.thumbnails.medium.url} alt="thumbnail" className="video__card-thumbnail" />
+                </a>
+                <a href="http://localhost:3000/">
+                  <div className="video__card_info">
+                    <div className="video__card-title">{item.snippet.title}</div>
+                    <div className="video__card-channel">{item.snippet.channelTitle}</div>
+                    <div className="video__card-description">{item.snippet.description}</div>
+                  </div>
+                </a>
               </li>
             ))
           : "Loading..."}
