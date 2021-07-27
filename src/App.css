@@ -127,6 +127,7 @@ li {
   width: 246px;
   height: 137.637px;
   margin-right: 16px;
+  cursor: pointer;
 }
 
 .video__card-title {
@@ -138,12 +139,14 @@ li {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .video__card-channel {
   color: grey;
   padding-bottom: 12px;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .video__card-description {
@@ -152,4 +155,19 @@ li {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+  cursor: pointer;
+}
+
+.video__render-main {
+  display: flex;
+  margin-top: var(--double-margin);
+}
+
+.video__render-left {
+  width: 640px;
+}
+
+.video__render-video {
+  width: 640px;
+  height: 360px;
 }
