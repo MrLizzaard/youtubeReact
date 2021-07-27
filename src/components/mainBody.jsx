@@ -14,7 +14,11 @@ class MainBody extends Component {
   render() {
     return (
       <div className="mainBody">
-        {this.state.data ? <VideoPage data={this.state.data} /> : <PopularVid onVideoClick={this.handleVideoClick}></PopularVid>}
+        {this.state.data ? (
+          <VideoPage data={this.state.data} onVideoClick={this.handleVideoClick} />
+        ) : (
+          <PopularVid onVideoClick={this.handleVideoClick}></PopularVid>
+        )}
       </div>
     );
   }

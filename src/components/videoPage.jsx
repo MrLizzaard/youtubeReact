@@ -1,10 +1,21 @@
 import React, { Component } from "react";
+import SidebarVid from "./sidebarVid";
 
 class VideoPage extends Component {
+  handleVideoClick = (data) => {
+    this.props.onVideoClick(data);
+  };
+
   render() {
     const data = this.props.data[0];
-    console.log(data);
+    const tags = [];
     const url = `https://www.youtube.com/embed/${data.id}`;
+
+    for (let i = 0; i < 3; i++) {
+      if (data.snippet.tags[i] === undefined) break;
+      tags.push(data.snippet.tags[i]);
+    }
+
     return (
       <div className="video__render-main">
         <div className="video__render-left">
@@ -17,7 +28,7 @@ class VideoPage extends Component {
             allowFullScreen
           ></iframe>
           <ul className="video__render-hashtags">
-            {data.snippet.tags.map((item) => {
+            {tags.map((item) => {
               return <li className="video__render-hashtag">#{item}</li>;
             })}
           </ul>
@@ -25,7 +36,9 @@ class VideoPage extends Component {
           <div className="video__render-channel">{data.snippet.channelTitle}</div>
           <div className="video__render-description">{data.snippet.description}</div>
         </div>
-        <div className="video__render-right">recommand videos</div>
+        <div className="video__render-right">
+          <SidebarVid onVideoClick={this.handleVideoClick} />
+        </div>
       </div>
     );
   }

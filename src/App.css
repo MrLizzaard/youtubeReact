@@ -3,9 +3,12 @@
 :root {
   /* color */
   --color-black: #000;
+  --color-light-grey: lightgrey;
+  --color-dark-grey: #606060;
   --color-white: #fff;
   --color-red: red;
   --color-navy: navy;
+  --color-blue: blue;
   /* margin */
   --basic-margin: 5px;
   --double-margin: 10px;
@@ -110,6 +113,8 @@ li {
   font-size: var(--font-size-large);
 }
 
+/* video list */
+
 .video__card {
   padding: 0;
   display: flex;
@@ -158,16 +163,91 @@ li {
   cursor: pointer;
 }
 
+/* video render */
+
 .video__render-main {
+  width: 100%;
   display: flex;
   margin-top: var(--double-margin);
 }
 
 .video__render-left {
-  width: 640px;
+  width: 65%;
+  padding-right: 10px;
 }
 
 .video__render-video {
-  width: 640px;
+  width: 100%;
   height: 360px;
+}
+
+.video__render-hashtags {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.video__render-hashtag {
+  color: var(--color-blue);
+  margin-right: var(--basic-margin);
+  margin-top: var(--basic-margin);
+}
+
+.video__render-title {
+  font-size: var(--font-size-large);
+  font-weight: var(--font-weight-regular);
+  line-height: 26px;
+
+  padding-bottom: var(--double-padding);
+  margin-bottom: var(--double-margin);
+
+  border-bottom: 1px solid var(--color-light-grey);
+}
+
+.video__render-channel {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  margin-bottom: var(--double-margin);
+}
+
+.video__render-description {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-regular);
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden; */
+}
+
+.video__render-right {
+  width: 35%;
+}
+
+.sideVideo__card {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.sideVideo__card-list {
+  display: flex;
+  margin-bottom: var(--basic-margin);
+}
+
+.sideVideo__card-title {
+  font-size: var(--font-size-medium);
+  font-weight: var(--font-weight-medium);
+  line-height: 20px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+.sideVideo__card-channel {
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-dark-grey);
+  line-height: 18px;
 }
