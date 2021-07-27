@@ -14,14 +14,14 @@ class PopularVid extends Component {
       .then((data) => {
         this.setState({
           key: 1,
-          data,
+          data: data.items,
         });
-        console.log(data.items);
       });
   };
 
   handleClick = (e) => {
-    this.props.onVideoClick(e.target.alt);
+    const data = this.state.data.filter((item) => item.id === e.target.dataset.id);
+    this.props.onVideoClick(data);
   };
 
   componentDidMount() {
@@ -32,13 +32,25 @@ class PopularVid extends Component {
     return (
       <ul className="video__card">
         {this.state.data
-          ? this.state.data.items.map((item) => (
+          ? this.state.data.map((item) => (
               <li className="video__card-list" key={item.id}>
-                <img src={item.snippet.thumbnails.medium.url} alt={item.id} className="video__card-thumbnail" onClick={this.handleClick} />
+                <img
+                  src={item.snippet.thumbnails.medium.url}
+                  alt={item.id}
+                  data-id={item.id}
+                  className="video__card-thumbnail"
+                  onClick={this.handleClick}
+                />
                 <div className="video__card_info">
-                  <div className="video__card-title">{item.snippet.title}</div>
-                  <div className="video__card-channel">{item.snippet.channelTitle}</div>
-                  <div className="video__card-description">{item.snippet.description}</div>
+                  <div className="video__card-title" data-id={item.id} onClick={this.handleClick}>
+                    {item.snippet.title}
+                  </div>
+                  <div className="video__card-channel" data-id={item.id} onClick={this.handleClick}>
+                    {item.snippet.channelTitle}
+                  </div>
+                  <div className="video__card-description" data-id={item.id} onClick={this.handleClick}>
+                    {item.snippet.description}
+                  </div>
                 </div>
               </li>
             ))

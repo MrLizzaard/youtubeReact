@@ -1,20 +1,20 @@
 import React, { Component } from "react";
 import PopularVid from "./popularVid";
-import VideoRender from "./videoRender";
+import VideoPage from "./videoPage";
 
 class MainBody extends Component {
   state = {
-    id: "",
+    data: "",
   };
 
-  handleVideoClick = (item) => {
-    this.setState({ id: item });
+  handleVideoClick = (data) => {
+    this.setState({ data });
   };
 
   render() {
     return (
       <div className="mainBody">
-        {this.state.id ? <VideoRender id={this.state.id} /> : <PopularVid onVideoClick={this.handleVideoClick}></PopularVid>}
+        {this.state.data ? <VideoPage data={this.state.data} /> : <PopularVid onVideoClick={this.handleVideoClick}></PopularVid>}
       </div>
     );
   }
