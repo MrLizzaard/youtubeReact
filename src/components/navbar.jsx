@@ -1,22 +1,27 @@
-import React, { PureComponent } from "react";
+import React, { useRef } from "react";
 
-class Navbar extends PureComponent {
-  render() {
-    return (
-      <div className="navbar">
-        <a href="http://localhost:3000/" className="navbar__icon">
-          <i className="fab fa-youtube"></i>
-          <span className="navbar__title">Youtube</span>
-        </a>
-        <div className="navbar__input__container">
+function Navbar() {
+  const inputText = new useRef();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(inputText.current.focus());
+  };
+  return (
+    <div className="navbar">
+      <a href="http://localhost:3000/" className="navbar__icon">
+        <i className="fab fa-youtube"></i>
+        <span className="navbar__title">Youtube</span>
+      </a>
+      <div className="navbar__input__container">
+        <form ref={inputText} onSubmit={handleSubmit}>
           <input className="navbar__input" type="text" placeholder="Search.." />
-          <button className="navbar__search">
+          <button type="submit" className="navbar__search">
             <i className="fas fa-search"></i>
           </button>
-        </div>
+        </form>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Navbar;

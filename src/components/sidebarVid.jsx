@@ -36,7 +36,7 @@ class SidebarVid extends Component {
           ? this.state.data.map((item) => (
               <li className="sideVideo__card-list" key={item.id}>
                 <img
-                  src={item.snippet.thumbnails.default.url}
+                  src={item.snippet.thumbnails.medium.url}
                   alt={item.id}
                   data-id={item.id}
                   className="sideVideo__card-thumbnail"
