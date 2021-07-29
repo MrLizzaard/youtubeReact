@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PopularVid from "./popularVid";
+import VideoContainer from "./videoContainer";
 import VideoPage from "./videoPage";
 
 class MainBody extends Component {
@@ -7,7 +7,7 @@ class MainBody extends Component {
     data: "",
   };
 
-  handleVideoClick = (data) => {
+  videoClickHandler = (data) => {
     this.setState({ data });
   };
 
@@ -15,9 +15,9 @@ class MainBody extends Component {
     return (
       <div className="mainBody">
         {this.state.data ? (
-          <VideoPage data={this.state.data} onVideoClick={this.handleVideoClick} />
+          <VideoPage data={this.state.data} onVideoClick={this.videoClickHandler} />
         ) : (
-          <PopularVid onVideoClick={this.handleVideoClick}></PopularVid>
+          <VideoContainer onVideoClick={this.videoClickHandler}></VideoContainer>
         )}
       </div>
     );

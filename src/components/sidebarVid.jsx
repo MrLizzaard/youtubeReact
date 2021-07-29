@@ -29,7 +29,6 @@ class SidebarVid extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <ul className="sideVideo__card">
         {this.state.data

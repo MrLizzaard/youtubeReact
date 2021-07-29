@@ -1,10 +1,13 @@
-import React, { useRef } from "react";
+import React, { memo } from "react";
 
-function Navbar() {
-  const inputText = new useRef();
+const Navbar = memo((props) => {
+  const formRef = React.createRef();
+  const inputText = React.createRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(inputText.current.focus());
+    const name = inputText.current.value;
+    name && props.onSearch(name);
+    formRef.current.reset();
   };
   return (
     <div className="navbar">
@@ -13,8 +16,8 @@ function Navbar() {
         <span className="navbar__title">Youtube</span>
       </a>
       <div className="navbar__input__container">
-        <form ref={inputText} onSubmit={handleSubmit}>
-          <input className="navbar__input" type="text" placeholder="Search.." />
+        <form ref={formRef} onSubmit={handleSubmit}>
+          <input ref={inputText} className="navbar__input" type="text" placeholder="Search.." />
           <button type="submit" className="navbar__search">
             <i className="fas fa-search"></i>
           </button>
@@ -22,6 +25,6 @@ function Navbar() {
       </div>
     </div>
   );
-}
+});
 
 export default Navbar;

@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar />
+        <Navbar onSearch={this.searchHandler} />
         <MainBody></MainBody>
       </div>
     );

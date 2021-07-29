@@ -28,9 +28,10 @@ class VideoPage extends Component {
             allowFullScreen
           ></iframe>
           <ul className="video__render-hashtags">
-            {tags.map((item) => {
-              return <li className="video__render-hashtag">#{item}</li>;
-            })}
+            {tags &&
+              tags.map((item) => {
+                return <li className="video__render-hashtag">#{item}</li>;
+              })}
           </ul>
           <div className="video__render-title">{data.snippet.title}</div>
           <div className="video__render-channel">{data.snippet.channelTitle}</div>
