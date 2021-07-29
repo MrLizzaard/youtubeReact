@@ -4,11 +4,23 @@ import "./app.css";
 import MainBody from "./components/mainBody";
 
 class App extends Component {
+  state = {
+    value: "",
+  };
+
+  searchHandler = (value) => {
+    this.setState({ value });
+  };
+
+  logoClick = () => {
+    this.setState({ value: "" });
+  };
+
   render() {
     return (
       <div className="container">
-        <Navbar onSearch={this.searchHandler} />
-        <MainBody></MainBody>
+        <Navbar onSearch={this.searchHandler} onLogoClick={this.logoClick} />
+        <MainBody searchValue={this.state.value}></MainBody>
       </div>
     );
   }

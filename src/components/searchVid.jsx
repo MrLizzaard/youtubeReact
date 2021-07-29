@@ -30,7 +30,6 @@ class SearchVid extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <ul className="video__card">
         {this.state.data

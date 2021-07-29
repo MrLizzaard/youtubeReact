@@ -9,12 +9,17 @@ const Navbar = memo((props) => {
     name && props.onSearch(name);
     formRef.current.reset();
   };
+
+  const logoClick = () => {
+    props.onLogoClick();
+  };
+
   return (
     <div className="navbar">
-      <a href="http://localhost:3000/" className="navbar__icon">
+      <div className="navbar__icon" onClick={logoClick}>
         <i className="fab fa-youtube"></i>
         <span className="navbar__title">Youtube</span>
-      </a>
+      </div>
       <div className="navbar__input__container">
         <form ref={formRef} onSubmit={handleSubmit}>
           <input ref={inputText} className="navbar__input" type="text" placeholder="Search.." />

@@ -30,7 +30,11 @@ class VideoPage extends Component {
           <ul className="video__render-hashtags">
             {tags &&
               tags.map((item) => {
-                return <li className="video__render-hashtag">#{item}</li>;
+                return (
+                  <li key={tags.indexOf(item)} className="video__render-hashtag">
+                    #{item}
+                  </li>
+                );
               })}
           </ul>
           <div className="video__render-title">{data.snippet.title}</div>

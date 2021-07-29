@@ -4,14 +4,14 @@ import SearchVid from "./searchVid";
 
 class VideoContainer extends Component {
   state = {
-    search: "",
+    value: "",
   };
 
   render() {
     return (
       <>
-        {this.state.search ? (
-          <SearchVid onVideoClick={this.props.onVideoClick}></SearchVid>
+        {this.state.value ? (
+          <SearchVid onVideoClick={this.props.onVideoClick} searchValue={this.state.value}></SearchVid>
         ) : (
           <PopularVid onVideoClick={this.props.onVideoClick}></PopularVid>
         )}

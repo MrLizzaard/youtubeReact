@@ -17,7 +17,7 @@ class MainBody extends Component {
         {this.state.data ? (
           <VideoPage data={this.state.data} onVideoClick={this.videoClickHandler} />
         ) : (
-          <VideoContainer onVideoClick={this.videoClickHandler}></VideoContainer>
+          <VideoContainer searchValue={this.props.searchValue} onVideoClick={this.videoClickHandler}></VideoContainer>
         )}
       </div>
     );
