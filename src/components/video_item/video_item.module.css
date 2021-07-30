@@ -1,0 +1,11 @@
+.video {
+  display: flex;
+  align-items: center;
+  border: 1px solid black;
+  margin-bottom: 0.2em;
+}
+
+.title,
+.channel {
+  margin: 0;
+}
