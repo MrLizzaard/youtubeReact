@@ -1,29 +1,27 @@
-import React, { Component } from "react";
-import Navbar from "./components/navbar";
+import React, { useEffect, useState } from "react";
 import "./app.css";
-import MainBody from "./components/mainBody";
+import * as config from "./components/config";
+import VideoList from "./components/video_list";
 
-class App extends Component {
-  state = {
-    value: "",
-  };
+function App() {
+  const [videos, setVideos] = useState([]);
 
-  searchHandler = (value) => {
-    this.setState({ value });
-  };
+  useEffect(() => {
+    const requestOptions = {
+      method: "GET",
+      redirect: "follow",
+    };
 
-  logoClick = () => {
-    this.setState({ value: "" });
-  };
+    fetch(
+      `https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&regionCode=KR&key=${config.APIKEY}`,
+      requestOptions
+    )
+      .then((response) => response.json())
+      .then((result) => setVideos(result.items))
+      .catch((error) => console.log("error", error));
+  }, []);
 
-  render() {
-    return (
-      <div className="container">
-        <Navbar onSearch={this.searchHandler} onLogoClick={this.logoClick} />
-        <MainBody searchValue={this.state.value}></MainBody>
-      </div>
-    );
-  }
+  return <VideoList videos={videos} />;
 }
 
 export default App;
