@@ -1,16 +1,23 @@
 import React from "react";
 import styles from "./video_item.module.css";
 
-const VideoItem = (props) => (
-  <li className={styles.container}>
-    <div className={styles.video}>
-      <img className={styles.thumbnail} src={props.video.snippet.thumbnails.medium.url} alt="thumbnail"></img>
-      <div className={styles.metadata}>
-        <p className={styles.title}>{props.video.snippet.title}</p>
-        <p className={styles.channel}>{props.video.snippet.channelTitle}</p>
+const VideoItem = ({ video, video: { snippet }, onVideoClick }) => {
+  return (
+    <li
+      className={styles.container}
+      onClick={() => {
+        onVideoClick(video);
+      }}
+    >
+      <div className={styles.video}>
+        <img className={styles.thumbnail} src={snippet.thumbnails.medium.url} alt="thumbnail"></img>
+        <div className={styles.metadata}>
+          <p className={styles.title}>{snippet.title}</p>
+          <p className={styles.channel}>{snippet.channelTitle}</p>
+        </div>
       </div>
-    </div>
-  </li>
-);
+    </li>
+  );
+};
 
 export default VideoItem;
