@@ -1,5 +1,5 @@
 import styles from "./app.module.css";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import SearchHeader from "./components/search_header/search_header";
 import VideoList from "./components/video_list/video_list";
 import VideoPage from "./components/video_page/video_page";
@@ -12,21 +12,23 @@ function App({ youtube }) {
     setSelectedVideo(video);
   };
 
-  const search = (query) => {
-    youtube
-      .search(query) //
-      .then((item) => {
-        setVideos(item);
-        setSelectedVideo(null);
-      });
-  };
+  const search = useCallback(
+    (query) => {
+      youtube
+        .search(query) //
+        .then((item) => {
+          setVideos(item);
+          setSelectedVideo(null);
+        });
+    },
+    [youtube]
+  );
 
   useEffect(() => {
     youtube
       .mostPopular() //
       .then((item) => setVideos(item));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [youtube]);
 
   return (
     <div className={styles.app}>
