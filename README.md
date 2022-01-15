@@ -4,6 +4,8 @@ Youtube API를 활용하여 만든 사이트
 
 Youtube API에서 끌어온 정보에 React를 사용하여 UI를 만들었다.
 
+인기동영상 순위보기, 검색, 동영상보기 기능을 구현
+
 ## 메인 페이지
 
 ![image](https://user-images.githubusercontent.com/56648090/149625787-257604cf-a8f9-493d-8ec8-c84f64ddea25.png)
